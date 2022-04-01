@@ -5,48 +5,37 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        
-        currentNode = ListNode()
-        head = currentNode
-        # stop when one or both lists are empty
-        while(l1 is not None and l2 is not None):
-            # calculate the value
-            adding = l1.val + l2.val + currentNode.val
-            currentNode.val = adding % 10
-            # move to next nodes for l1, l2
-            l1, l2 = l1.next, l2.next
-            # if l1 or l2 is not none
-            if(adding >= 10 or l1 is not None or l2 is not None):
-                # to carry over to the next digit, either 1 or 0
-                addend = adding >= 10 and 1 or 0
-                currentNode.next = ListNode(addend)
-                currentNode = currentNode.next
-            
-        while(l2 is not None):
-            # calculate the value
-            adding = l2.val + currentNode.val
-            currentNode.val = adding % 10
-            # move to next nodes for l2
-            l2 = l2.next
-            # if l2 is not none
-            if(adding >= 10 or l2 is not None):
-                # to carry over to the next digit, either 1 or 0
-                addend = adding >= 10 and 1 or 0
-                currentNode.next = ListNode(addend)
-                currentNode = currentNode.next
-        while(l1 is not None):
-            # calculate the value
-            adding = l1.val + currentNode.val
-            currentNode.val = adding % 10
-            # move to next nodes for l1
+        # if l1 is empty
+        if(l1 is None):
+            return l2
+        # let the head be l1
+        head = l1
+        addend = 0
+        # stop looping if both lists are empty
+        while(l1 or l2):
+            # if there is l2 is empty and there is no addend
+            if(l2 is None and addend == 0):
+                break
+            # calculate the current value
+            l2Val = l2 and l2.val or 0
+            tempVal = l1.val + l2Val + addend
+            # new addend value
+            addend = tempVal >= 10 and 1 or 0
+            # add two numbers
+            l1.val = tempVal % 10
+            # all cases:
+            # if next value in l1 is none
+            # and l2 is not none
+            if(l1.next is None and l2):
+                l1.next, l2 = l2.next, None
+            # or addend is not 0
+            if(l1.next is None and addend == 1):
+                l1.next = ListNode(addend)
+                break
+            # if next value in l1 is not none
             l1 = l1.next
-            # if l1 is not none
-            if(adding >= 10 or l1 is not None):
-                # to carry over to the next digit, either 1 or 0
-                addend = adding >= 10 and 1 or 0
-                currentNode.next = ListNode(addend)
-                currentNode = currentNode.next
-            
+            if(l2 is not None):
+                l2 = l2.next
+        
         return head
-                
         
