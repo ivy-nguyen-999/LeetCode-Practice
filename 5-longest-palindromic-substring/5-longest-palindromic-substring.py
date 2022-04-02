@@ -1,5 +1,25 @@
 class Solution:
-        
+    def longestPalindrome(self, s: str) -> str:
+        if s == s[::-1]:
+            return s
+        start = 0
+        length = 1
+        for current in range(1, len(s)):
+            left = current - length
+            right = current + 1
+            
+            s1 = s[left-1 : right]
+            s2 = s[left : right]
+            if s1 == s1[::-1] and left - 1 >= 0:
+                start = left - 1
+                length += 2
+            elif s2 == s2[::-1]:
+                start = left
+                length += 1
+            
+        return s[start : start+length]
+    
+    """
     # palindrome can be even or odd. Adding # in between letters
     # in the string make all palindrome become odd palindrome
     def oddPalindrome(self, s):
@@ -14,6 +34,10 @@ class Solution:
     
     # manacher's algorithm
     def longestPalindrome(self, s: str) -> str:
+        
+        if(len(s) == 1 or s == s[::-1]):
+            return s
+        
         s = self.oddPalindrome(s) # len becomes 2n + 1
         
         # initialize an array to contain the length of all palindromes
@@ -57,7 +81,7 @@ class Solution:
         
         result = s[finalCenter - maxLen: finalCenter + maxLen + 1]
         return self.palindrome(result)
-        
+    """
     
 
             
