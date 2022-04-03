@@ -13,11 +13,7 @@ class Solution:
                 s1 = s[:right] + s[right+1:]
                 s2 = s[:left] + s[left+1:]
                 # return true if one of them is palindrome
-                if(s1 == s1[::-1] or s2 == s2[::-1]):
-                    return True
-                else:
-                    # return False if none of them is palindrome
-                    return False
+                return s1 == s1[::-1] or s2 == s2[::-1]
             # update left and right
             left += 1
             right -= 1
