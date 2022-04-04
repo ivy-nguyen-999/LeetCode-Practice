@@ -45,6 +45,7 @@ class Solution:
                         result = "1" + result
                     remainder = "1"
         
+        # remove the first 0
         if(result[0] == "0"):
             return result[1:]
         
