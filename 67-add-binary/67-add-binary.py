@@ -3,7 +3,7 @@ class Solution:
         # reverse strings
         a, b = a[::-1], b[::-1]
         
-        # let b be the shorter len string
+        # let b be the shorter string
         if len(b) > len(a):
             a, b = b, a
         
