@@ -16,20 +16,34 @@ class Solution:
         remainder = "0"
         
         for index in range(len(b)):
-            if(a[index] == "0" and b[index] == "0"):
-                result = remainder + result
-                remainder = "0"
-            elif((a[index] == "1" and b[index] == "0") or (a[index] == "0" and b[index] == "1")):
-                if(remainder == "0"):
-                    result = "1" + result
-                else:
-                    result = "0" + result
-            else: # a[index] == 1 and b[index] == 1
-                if(remainder == "0"):
-                    result = "0" + result
-                else:
-                    result = "1" + result
-                remainder = "1"
+            if a[index] == "0":
+                if b[index] == "0":
+                    # 0 0 0 and 0 0 1
+                    result = remainder + result
+                    # reset remainder
+                    remainder = "0"
+                else: # b[index] == "1"
+                    # 0 1 0
+                    if remainder == "0":
+                        result = "1" + result
+                    else: # 0 1 1
+                        result = "0" + result
+                        remainder = "1"
+            else: # a[index] == "1"
+                if b[index] == "0":
+                    # 1 0 0
+                    if remainder == "0":
+                        result = "1" + result
+                    else: # 1 0 1
+                        result = "0" + result
+                        remainder = "1"
+                else: # b[index] == "1"
+                    # 1 1 0
+                    if remainder == "0":
+                        result = "0" + result
+                    else: # 1 1 1
+                        result = "1" + result
+                    remainder = "1"
         
         if(result[0] == "0"):
             return result[1:]
