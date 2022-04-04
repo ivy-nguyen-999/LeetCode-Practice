@@ -1,6 +1,6 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        # reverse strings
+        # reverse both strings
         a, b = a[::-1], b[::-1]
         
         # let b be the shorter string
