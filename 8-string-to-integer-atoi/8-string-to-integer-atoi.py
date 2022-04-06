@@ -6,7 +6,7 @@ class Solution:
         num = ""
         for char in s:
         # get the sign and numbers
-            if (ord(char) > 47 and ord(char) < 58):
+            if (char >= "0" and char <= "9"):
                 num += char
             else:
                 if (char == "-" or char == "+") and num == "":
