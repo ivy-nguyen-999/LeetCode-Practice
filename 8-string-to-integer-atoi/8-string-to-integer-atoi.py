@@ -19,10 +19,10 @@ class Solution:
             return 0
         else:
             result = int(num)
-            if result >= -pow(2,31) and result <= pow(2,31) - 1:
+            if result >= -2**31 and result <= 2**31 - 1:
                 return result
             elif result < 0:
-                 return -pow(2,31)
+                 return -2**31
             else:
-                return pow(2,31) - 1
+                return 2**31 - 1
                 
