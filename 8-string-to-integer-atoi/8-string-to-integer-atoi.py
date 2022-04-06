@@ -1,11 +1,15 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
         # ignore any leading whitespace
-        s = s.strip()
+        index = 0
+        while index < len(s) and s[index] == " ":
+            index += 1
+            
+        s = s[index:]
         
         num = ""
         for char in s:
-            # get the sign and numbers
+            # get the sign and numbers using ascii
             if (ord(char) >= 48 and ord(char) <= 57):
                 num += char
             else:
