@@ -36,7 +36,7 @@ class Solution:
                     # skip duplicated values
                     while(j < k and nums[j] == nums[j - 1]):
                         j += 1
-        
+            
         if abs(greater - target) < abs(less - target):
             return greater
         
