@@ -6,15 +6,13 @@ class Solution:
         num = ""
         for char in s:
         # get the sign and numbers
-            if (char == "-") or (char == "+"):
-                if (num == ""):
+            if (ord(char) > 47 and ord(char) < 58):
+                num += char
+            else:
+                if (char == "-" or char == "+") and num == "":
                     num += char
                 else:
                     break
-            elif (ord(char) > 47 and ord(char) < 58):
-                num += char
-            else:
-                break
         
         # if the string is empty
         if num == "" or num == "-" or num == "+":
