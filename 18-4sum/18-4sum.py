@@ -20,14 +20,24 @@ class Solution:
             # skip duplicated values
             if a > 0 and nums[a] == nums[a - 1]:
                 continue
+            # skip if nums[a] is too small
+            if nums[a] + sum(nums[-3:]) < target:
+                continue
             # break if the sum of the next four numbers is larger than the target
             if sum(nums[a:a+4]) > target:
                 break
+                
             for b in range(a + 1, len(nums) - 2):
                 # skip duplicated values
                 if b > a + 1 and nums[b] == nums[b - 1]:
                     continue
-                
+                # skip if this current nums[b] is too small
+                if nums[a] + nums[b] + sum(nums[-2:]) < target:
+                    continue
+                # break if the sum of the next three numbers with nums[a] is larger than target
+                if nums[a] + sum(nums[b:b+3]) > target:
+                    break
+                    
                 c = b + 1
                 d = len(nums) - 1
                 
