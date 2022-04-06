@@ -19,9 +19,10 @@ class Solution:
             return 0
         else:
             result = int(num)
-            if result < -2**31:
-                return -2**31
-            elif result > 2**31 - 1:
-                return 2**31 - 1
-            else:
+            if result >= -2**31 and result <= 2**31 - 1:
                 return result
+            elif result < 0:
+                 return -2**31
+            else:
+                return 2**31 - 1
+                
