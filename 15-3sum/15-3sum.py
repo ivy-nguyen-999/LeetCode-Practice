@@ -32,10 +32,12 @@ class Solution:
                 
                 else:
                     result.append([nums[i], nums[j], nums[k]])
+                    
                     # increment j value
                     j += 1
                     # decrement k value
                     k -= 1
+                    
                     # skip all duplicated values
                     while(j < k and nums[j] == nums[j - 1]):
                         j += 1
