@@ -5,11 +5,11 @@ class Solution:
         
         num = ""
         for char in s:
-        # get the sign and numbers
+            # get the sign and numbers
             if (char >= "0" and char <= "9"):
                 num += char
             else:
-                if (char == "-" or char == "+") and num == "":
+                if (char == "-" or char == "+") and not num:
                     num += char
                 else:
                     break
