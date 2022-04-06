@@ -6,10 +6,10 @@ class Solution:
         num = ""
         for char in s:
             # get the sign and numbers
-            if (char >= "0" and char <= "9"):
+            if (ord(char) >= 48 and ord(char) <= 57):
                 num += char
             else:
-                if (char == "-" or char == "+") and not num:
+                if (ord(char) == 43 or ord(char) == 45) and not num:
                     num += char
                 else:
                     break
