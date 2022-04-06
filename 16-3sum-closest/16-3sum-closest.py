@@ -17,8 +17,8 @@ class Solution:
         if threeSum <= target:
             return threeSum
         
-        greater = 3001
-        less = -3001
+        minDiff = 10**4 + 1
+        result = 0
         
         for i in range(len(nums) - 2):
             
@@ -31,24 +31,26 @@ class Solution:
             
             while(j < k):
                 threeSum = nums[i] + nums[j] + nums[k]
+                diff = abs(threeSum - target)
+                
+                # record the min difference
+                if diff < minDiff:
+                    minDiff = diff
+                    result = threeSum
+                
                 if threeSum == target:
                     return target
                 elif threeSum > target:
-                    greater = min(threeSum, greater)
                     # decrement k
                     k -= 1
                     # skip duplicated values
                     while(j < k and nums[k] == nums[k + 1]):
                         k -= 1
                 else:
-                    less = max(threeSum, less)
                     # increment j
                     j += 1
                     # skip duplicated values
                     while(j < k and nums[j] == nums[j - 1]):
                         j += 1
-            
-        if abs(greater - target) < abs(less - target):
-            return greater
         
-        return less
+        return result
