@@ -1,11 +1,7 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
         # ignore any leading whitespace
-        index = 0
-        while index < len(s) and s[index] == " ":
-            index += 1
-            
-        s = s[index:]
+        s = s.lstrip()
         
         num = ""
         for char in s:
