@@ -17,6 +17,7 @@ class Solution:
         # if the string is empty
         if num == "" or num == "-" or num == "+":
             return 0
+        
         else:
             result = int(num)
             if result >= -2**31 and result <= 2**31 - 1:
