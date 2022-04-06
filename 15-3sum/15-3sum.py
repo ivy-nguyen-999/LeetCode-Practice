@@ -5,6 +5,7 @@ class Solution:
         
         nums = sorted(nums)
         result = []
+        
         for i in range(len(nums) - 2):
             # need negative numbers to cancel out positive numbers
             if(nums[i] > 0):
