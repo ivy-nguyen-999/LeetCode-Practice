@@ -1,5 +1,8 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if(len(nums) < 3):
+            return []
+        
         nums = sorted(nums)
         result = []
         for i in range(len(nums) - 2):
@@ -15,6 +18,7 @@ class Solution:
             k = len(nums) - 1 # last number in the list
             
             while(j < k):
+                #calculate the sum
                 threeSum = nums[j] + nums[k] + nums[i]
                 
                 # increment j if the 3sum less than 0
