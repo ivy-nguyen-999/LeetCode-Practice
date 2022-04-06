@@ -7,7 +7,7 @@ class Solution:
             if(nums[i] > 0):
                 break
                 
-            # skip if the current number equal the previous one
+            # skip duplicated values
             if(i > 0 and nums[i] == nums[i-1]):
                 continue
                 
@@ -16,12 +16,15 @@ class Solution:
             
             while(j < k):
                 threeSum = nums[j] + nums[k] + nums[i]
+                
                 # increment j if the 3sum less than 0
                 if(threeSum < 0):
                     j += 1
+                    
                 # decrement k if the 3sum greater than 0
                 elif(threeSum > 0):
                     k -= 1
+                
                 else:
                     result.append([nums[i], nums[j], nums[k]])
                     # increment j value
