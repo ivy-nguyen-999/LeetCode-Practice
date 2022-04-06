@@ -6,6 +6,17 @@ class Solution:
         
         #for larger cases
         nums = sorted(nums)
+        
+        # for target is too small
+        threeSum = sum(nums[:3])
+        if threeSum >= target:
+            return threeSum
+        
+        #for target is too large
+        threeSum = sum(nums[-3:])
+        if threeSum <= target:
+            return threeSum
+        
         greater = 3001
         less = -3001
         
