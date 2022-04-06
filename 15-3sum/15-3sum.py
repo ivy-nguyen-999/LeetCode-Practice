@@ -3,24 +3,35 @@ class Solution:
         nums = sorted(nums)
         result = []
         for i in range(len(nums) - 2):
+            # need negative numbers to cancel out positive numbers
+            if(nums[i] > 0):
+                break
+                
             # skip if the current number equal the previous one
             if(i > 0 and nums[i] == nums[i-1]):
                 continue
+                
             j = i + 1 # next number to i
             k = len(nums) - 1 # last number in the list
+            
             while(j < k):
-                twoSum = nums[j] + nums[k]
-                if(twoSum + nums[i] == 0):
+                threeSum = nums[j] + nums[k] + nums[i]
+                # increment j if the 3sum less than 0
+                if(threeSum < 0):
+                    j += 1
+                # decrement k if the 3sum greater than 0
+                elif(threeSum > 0):
+                    k -= 1
+                else:
                     result.append([nums[i], nums[j], nums[k]])
                     # increment j value
                     j += 1
-                    # skip all duplicated value
-                    while(j < k and nums[j] == nums[j-1]):
-                        j += 1
-                # increment j if the 3sum less than 0
-                elif(twoSum + nums[i] < 0):
-                    j += 1
-                # decrement k if the 3sum greater than 0
-                else:
+                    # decrement k value
                     k -= 1
+                    # skip all duplicated values
+                    while(j < k and nums[j] == nums[j - 1]):
+                        j += 1
+                    while(j < k and nums[k] == nums[k + 1]):
+                        k -= 1
+
         return result
