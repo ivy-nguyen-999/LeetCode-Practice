@@ -3,23 +3,22 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        temp = nums1[:m] # a copy of nums1
         
-        currentInt = 0
-        currentNums1 = 0
-        currentNums2 = 0
+        current_index = m + n - 1
+        current_nums1_index = m - 1
+        current_nums2_index = n - 1
         
-        while (currentInt < len(nums1)):
-            is_nums1_exhausted = currentNums1 >= m
-            is_nums2_exhausted = currentNums2 >= n
+        while(current_index >= 0):
+            is_nums1_exhausted = current_nums1_index < 0
+            is_nums2_exhausted = current_nums2_index < 0
             
-            if(not is_nums1_exhausted) and (is_nums2_exhausted or temp[currentNums1] < nums2[currentNums2]):
-                nums1[currentInt] = temp[currentNums1]
-                currentNums1 += 1
+            if(not is_nums1_exhausted) and (is_nums2_exhausted or nums1[current_nums1_index] > nums2[current_nums2_index]):
+                nums1[current_index] = nums1[current_nums1_index]
+                current_nums1_index -= 1
             else:
-                nums1[currentInt] = nums2[currentNums2]
-                currentNums2 += 1
+                nums1[current_index] = nums2[current_nums2_index]
+                current_nums2_index -= 1
             
-            currentInt += 1
+            current_index -= 1
         
         
