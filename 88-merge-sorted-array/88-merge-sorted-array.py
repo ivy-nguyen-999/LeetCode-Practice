@@ -5,18 +5,16 @@ class Solution:
         """
         # start from the last
         current_index = m + n - 1
-        current_nums1_index = m - 1
-        current_nums2_index = n - 1
-        
+           
         # looping
         while(current_index > -1):
             
-            if current_nums1_index >= 0 and (current_nums2_index < 0 or nums1[current_nums1_index] > nums2[current_nums2_index]):
-                nums1[current_index] = nums1[current_nums1_index]
-                current_nums1_index -= 1
+            if (m-1) >= 0 and ((n-1) < 0 or nums1[m-1] > nums2[n-1]):
+                nums1[current_index] = nums1[m-1]
+                m -= 1
             else:
-                nums1[current_index] = nums2[current_nums2_index]
-                current_nums2_index -= 1
+                nums1[current_index] = nums2[n-1]
+                n -= 1
             
             # decrement the index
             current_index -= 1
