@@ -5,7 +5,6 @@ class Solution:
         """
         # start from the last
         current_index = m + n - 1
-           
         # looping
         while(current_index >= 0):
             # if nums1 is not exhausted and
@@ -18,7 +17,6 @@ class Solution:
                 # add current nums2 to the list
                 nums1[current_index] = nums2[n-1]
                 n -= 1
-            
             # decrement the index
             current_index -= 1
         
