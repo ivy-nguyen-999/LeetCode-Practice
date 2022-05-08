@@ -6,9 +6,9 @@ class Node:
         self.next = next
         self.random = random
 """
-
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        """
         hashmap = {}
         
         def clone(node):
@@ -29,3 +29,18 @@ class Solution:
             return copy
         
         return clone(head)
+        """
+        hashmap = {}
+        
+        init = addVal = head
+        
+        while init:
+            hashmap[init] = Node(init.val)
+            init = init.next
+            
+        while addVal:
+            hashmap[addVal].next = hashmap[addVal.next] if addVal.next else None
+            hashmap[addVal].random = hashmap[addVal.random] if addVal.random else None
+            addVal = addVal.next
+            
+        return hashmap[head] if head else None
