@@ -8,7 +8,6 @@ class Node:
 """
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        """
         hashmap = {}
         
         def clone(node):
@@ -44,3 +43,4 @@ class Solution:
             addVal = addVal.next
             
         return hashmap[head] if head else None
+        """
