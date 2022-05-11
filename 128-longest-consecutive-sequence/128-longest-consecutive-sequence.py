@@ -5,11 +5,13 @@ class Solution:
         
         for n in nums:
             # check if its the start of a sequence
-            if (n - 1) not in numSet:
-                length = 1
-                while (n + length) in numSet:
-                    length += 1
-                longest = max(longest, length)
+            if (n - 1) in numSet:
+                continue
+                
+            length = 1
+            while (n + length) in numSet:
+                length += 1
+            longest = max(longest, length)
         
         return longest
         
