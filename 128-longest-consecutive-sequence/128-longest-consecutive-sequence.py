@@ -1,8 +1,5 @@
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
-        if(len(nums) < 2):
-            return len(nums)
-        
+    def longestConsecutive(self, nums: List[int]) -> int:        
         numSet = set(nums)
         longest = 0
         
