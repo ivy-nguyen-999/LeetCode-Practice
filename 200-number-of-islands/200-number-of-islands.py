@@ -3,18 +3,6 @@ class Solution:
         ROWS, COLUMNS = len(grid), len(grid[0])
         # to record which land already visited
         visit = set()
-        """
-        def dfs(row, column):
-            #base cases
-            if((row, column) in visit or row < 0 or row == ROWS 
-               or column < 0 or column == COLUMNS or grid[row][column] == '0'):
-                return
-            visit.add((row, column))
-            dfs(row - 1, column)
-            dfs(row + 1, column)
-            dfs(row, column - 1)
-            dfs(row, column + 1)
-        """
         def bfs(row, column):
             q = collections.deque()
             visit.add((row, column))
