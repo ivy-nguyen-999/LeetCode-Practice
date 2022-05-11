@@ -9,8 +9,7 @@ class Solution:
                 length = 1
                 while (n + length) in numSet:
                     length += 1
-                if length > longest:
-                    longest = length
+                longest = max(longest, length)
         
         return longest
         
