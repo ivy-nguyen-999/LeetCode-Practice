@@ -1,7 +1,7 @@
 class Solution:
     def sumOfThree(self, num: int) -> List[int]:
-        if (num % 3):
+        if num % 3:
             return []
-        third = num//3
-        return [third - 1, third, third + 1]
+        x = num//3
+        return [x - 1, x, x + 1]
         
