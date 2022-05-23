@@ -9,10 +9,10 @@ class Solution:
         
         #create a map to contain all visited elements
         prevMap = {}
-        for i in range(len(nums)):
-            match = target - nums[i]
+        for index, value in enumerate(nums):
+            match = target - value
             if match in prevMap:
-                return [prevMap[match], i]
-            prevMap[nums[i]] = i
+                return [prevMap[match], index]
+            prevMap[value] = index
             
             
